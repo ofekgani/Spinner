@@ -1,7 +1,7 @@
 package com.example.spinner;
 
-import android.content.Intent;
 import android.graphics.Color;
+import android.os.Debug;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -10,25 +10,23 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 
-public class MainActivity extends AppCompatActivity {
+public class NextActivity extends AppCompatActivity {
 
     Button button;
     LinearLayout linearLayout;
-    Intent next;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_next);
 
-        linearLayout = findViewById(R.id.layout);
-        button = findViewById(R.id.btn_next);
-
-         next = new Intent(this,NextActivity.class);
+        linearLayout = findViewById(R.id.linearLayout);
+        button = findViewById(R.id.btn_back);
     }
 
     public boolean onCreateOptionsMenu(Menu menu){
         getMenuInflater().inflate(R.menu.main,menu);
+        menu.add("Yellow");
         return true;
     }
 
@@ -47,10 +45,13 @@ public class MainActivity extends AppCompatActivity {
         if(st.equals("Blue")){
             linearLayout.setBackgroundColor(Color.BLUE);
         }
+        if(st.equals("Yellow")){
+            linearLayout.setBackgroundColor(Color.YELLOW);
+        }
         return true;
     }
 
-    public void next(View view) {
-        startActivity(next);
+    public void back(View view) {
+        finish();
     }
 }
