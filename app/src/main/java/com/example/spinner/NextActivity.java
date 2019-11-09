@@ -10,6 +10,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 
+/**
+ * @author ofek gani
+ * @version 1.0
+ * @since 9.11
+ */
 public class NextActivity extends AppCompatActivity {
 
     Button button;
@@ -24,6 +29,10 @@ public class NextActivity extends AppCompatActivity {
         button = findViewById(R.id.btn_back);
     }
 
+    /**
+     * @param menu get menu type spinner.
+     * @return if created menu spinner.
+     */
     public boolean onCreateOptionsMenu(Menu menu){
         getMenuInflater().inflate(R.menu.main,menu);
         menu.add("Yellow");
@@ -31,6 +40,10 @@ public class NextActivity extends AppCompatActivity {
     }
 
     @Override
+    /**
+     * @param item get item onClick.
+     * @return if choice item  or not.
+     */
     public boolean onOptionsItemSelected(MenuItem item) {
         String st = item.getTitle().toString();
         if(st.equals("White")){
@@ -50,6 +63,10 @@ public class NextActivity extends AppCompatActivity {
         }
         return true;
     }
+
+    /**
+     * @param view get button clickOn.
+     */
 
     public void back(View view) {
         finish();
